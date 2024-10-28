@@ -1,0 +1,76 @@
+Dp can be applied anywhere not necessrily on recursion as the only these two condition must be satisfied.
+Dynamic Programming (DP) Notes:
+
+DP focus on optimisation of brute force and global optimal unlike the local optimal in greedy
+
+Key Concepts of DP:
+1. Repeating Subproblems:
+   - The problem can be broken down into smaller subproblems that recur multiple times.
+   - DP is applicable when these subproblems repeat and can be cached to avoid redundant calculations.
+   - This is why DP isn't applied in algorithms like merge sort, quicksort, and binary search, as there are no repeating subproblems in those cases.
+
+2. Optimal Substructure:
+   - A problem has an optimal substructure if the optimal solution of a larger problem can be derived from the optimal solutions of its subproblems.
+   - Example: Shortest path problems, where the shortest path to the destination can be built using the shortest paths to intermediate nodes.
+
+Difference Between DP and Divide and Conquer:
+- DP often involves recursion where subproblems are repeated and can be stored (memoization) to avoid redundant work.
+- Divide and Conquer involves breaking down the problem into independent subproblems (e.g., merge sort), which are then solved separately without repeating.
+
+Steps to Solve a DP Problem:
+1. Identify if DP can be applied:
+   - Check if there are repeating subproblems and if the problem has an optimal substructure.
+
+2. Look for the number of unique states:
+   - Identify the distinct states the problem can be in. These are usually defined by the parameters of the recursive function.
+   - Fewer unique states generally lead to more efficient DP solutions.
+
+3. Identify the state representation:
+   - Define how to represent the state of the problem at any point in time.
+   - This could involve indexes (in arrays), specific values, or combinations of parameters.
+
+4. Formulate the state transition:
+   - Determine how you can move from one state to another.
+   - Write down the recursive relation or state transition equation that connects different states.
+
+5. Choose the method of DP:
+   - Top-down (Memoization): Start with the original problem and recursively solve subproblems, storing their results.
+   - Bottom-up (Tabulation): Start with the smallest subproblems and iteratively solve larger subproblems using a table.
+
+6. Implement and optimize:
+   - Translate your recursive relation into code.
+   - Optimize space complexity if possible (e.g., reducing space from O(n) to O(1) if only the last few states are needed).
+
+
+
+
+*****************************************------------------------------************************************---------------
+
+
+
+
+DNC is different from recusion :-
+Difference between Divide and Conquer (D&C) and Recursion
+
+1. Recursion:
+   - A programming technique where a function calls itself to solve smaller instances of the same problem.
+   - Often used in algorithms like tree traversals, factorial, Fibonacci, etc.
+   - Requires a base case to stop recursion.
+   - May involve overlapping subproblems, which can lead to inefficiency without memoization.
+
+2. Divide and Conquer (D&C):
+   - An algorithmic paradigm that divides a problem into independent subproblems, solves them, and combines their results.
+   - Used in algorithms like Merge Sort, Quick Sort, Binary Search.
+   - Subproblems are non-overlapping and independent.
+   - Involves three steps: Divide, Conquer, and Combine.
+
+3. Key Differences:
+   - Subproblems Overlap:
+     - Recursion: May have overlapping subproblems.
+     - D&C: Subproblems are independent and non-overlapping.
+   - Result Combination:
+     - Recursion: May or may not involve combining results.
+     - D&C: Always involves combining results from independent subproblems.
+   - Efficiency:
+     - Recursion: Can be inefficient without memoization.
+     - D&C: Typically efficient as it avoids redundant work by solving each subproblem only once.

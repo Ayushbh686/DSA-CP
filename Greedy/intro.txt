@@ -1,0 +1,66 @@
+Brute Force
+------------
+Definition:
+- The brute force paradigm involves exploring all possible solutions to a problem to find the optimal one. This approach systematically enumerates all potential candidates and checks each one to see if it satisfies the problem's conditions.
+
+Characteristics:
+- Exhaustive: It considers all possible configurations or solutions.
+- Simple but Inefficient: Often easy to implement but can be computationally expensive due to its comprehensive search space.
+- Applications: Useful when the problem size is small or when an exact solution is needed regardless of time complexity.
+
+Example:
+- Finding the maximum sum of a subarray in an array by considering all possible subarrays.
+
+
+Greedy Algorithms
+-----------------
+Definition:
+- Greedy algorithms build up a solution piece by piece, always choosing the next piece that offers the most immediate benefit (the "greedy" choice). The hope is that these local optimizations lead to a global optimal solution.
+
+Characteristics:
+- Local Optimization: Makes the best local choice at each step.
+- No Backtracking: Once a choice is made, it is not reconsidered.
+- Efficient but Not Always Optimal: Works well for certain problems but doesn't guarantee an optimal solution for all problems.
+
+Applications:
+- Problems where local optimum leads to global optimum, such as in finding minimum spanning trees (Kruskal’s or Prim’s algorithm) or shortest paths in a graph with non-negative weights (Dijkstra's algorithm).
+
+Example:
+- The coin change problem, where you aim to use the fewest coins to make a specific amount, assuming coin denominations are available in a greedy-compatible order.
+
+
+Dynamic Programming (DP)
+------------------------
+Definition:
+- Dynamic programming is an optimization technique that solves complex problems by breaking them down into simpler subproblems. It solves each subproblem once and stores the results (using memory) to avoid redundant calculations.
+
+Characteristics:
+- Optimal Substructure: The problem can be broken down into smaller, overlapping subproblems.
+- Overlapping Subproblems: The same subproblems are solved multiple times.
+- Efficient: Reduces time complexity by storing results of subproblems (memoization or tabulation).
+
+Applications:
+- Problems with overlapping subproblems and optimal substructure properties, such as the Fibonacci sequence, shortest paths (Bellman-Ford algorithm), and the knapsack problem.
+
+Example:
+- Calculating the nth Fibonacci number using memoization to store previously calculated values for reuse.
+
+
+Divide and Conquer (D&C)
+------------------------
+Definition:
+- Divide and conquer is a paradigm that solves a problem by dividing it into smaller subproblems of the same type, solving each subproblem independently, and combining their solutions to solve the original problem.
+
+Characteristics:
+- Divide: Breaks the problem into several subproblems that are smaller instances of the same problem.
+- Conquer: Solves the subproblems recursively.
+- Combine: Merges the solutions of the subproblems to form a solution to the original problem.
+
+Applications:
+- Efficient for problems that can be recursively divided, such as sorting algorithms (quick sort, merge sort) and searching algorithms (binary search).
+
+Example:
+- Merge sort, where an array is recursively divided into halves until each subarray contains a single element, and then merged back in a sorted manner.
+
+
+These algorithm paradigms are fundamental strategies used to approach and solve problems in computer science, each with its strengths and suitable applications. Understanding the nature of the problem and the constraints involved can help determine which paradigm is most appropriate to use.
