@@ -1,1 +1,1 @@
-This is competitive folder with cp questions from different platform . 
+My collection of cp contests questions 
