@@ -11,6 +11,7 @@ int main(){
     }
     stack<int> stk;//Similar as previous greater element just that we store previous greater index
     span[0] = 1;
+    stk.push(0);
     for(int i=1 ; i<n ; i++){
         while(stk.size() > 0 and stock[i] >= stock[stk.top()]) stk.pop();
         if(stk.size() > 0) span[i] = i - stk.top();
