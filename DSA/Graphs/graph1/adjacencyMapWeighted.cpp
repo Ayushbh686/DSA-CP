@@ -1,15 +1,15 @@
 #include<iostream>
 #include<vector>
-#include<list>
+#include<unordered_map>
 using namespace std;
-//pair<des , wt>
-vector< list< pair< int , int > > > graph;  //if unweighted graph then only vector<list<int>>
+
+vector< unordered_map<int , int> > graph;   // its always for weighted , use unordered set for unweighted
 int v;
 
 void add_edge(int src , int des , int wt , bool is_directed = true){
-    graph[src].push_back({des , wt});
+    graph[src][des] = wt;
     if(!is_directed){
-        graph[des].push_back({src , wt});
+        graph[des][src] = wt;
     }
     return ;
 }
@@ -27,7 +27,7 @@ void print_graph(){
 
 int main(){
     cin>>v;
-    graph.resize(v , list<pair<int , int>> ());
+    graph.resize(v , unordered_map<int , int> ());
     int e;
     cin>>e;
     while(e--){
