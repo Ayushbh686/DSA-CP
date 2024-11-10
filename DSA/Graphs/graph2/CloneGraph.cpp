@@ -38,19 +38,15 @@ public:
     
     unordered_map<int , Node*> mp;
 
-    Node* dfs(Node* node){
+    Node* cloneGraph(Node* node) {
         if(node == NULL) return node;
         int val = node->val;
         if(mp.find(val) != mp.end()) return mp[val];
         Node* newNode = new Node(node->val);
         mp[val] = newNode;
         for(auto it : node->neighbors){
-            (newNode->neighbors).push_back(dfs(it));
+            (newNode->neighbors).push_back(cloneGraph(it));
         }
         return newNode;
-    }
-
-    Node* cloneGraph(Node* node) {
-        return dfs(node);
     }
 };
