@@ -24,14 +24,17 @@ int main(){
     visited.insert({0,0});
 
     while(!qu.empty()){
-        pair<int,int>p = qu.front();
-        int i = p.first;
-        int j = p.second;
         int size = qu.size();
-        qu.pop();
-        if(i==x and j==y) break;
         vector<pair<int , int>> dir = {{2 , -1} , {2 , 1} , {-2 , -1} , {-2 , 1} , {1 , -2} , {1 , 2} , {-1 , -2} , {-1 , 2}};
         for(int k=0 ; k<size ; k++){
+            pair<int,int>p = qu.front();
+            int i = p.first;
+            int j = p.second;
+            if(i==x and j==y){
+                 cout<<steps<<endl;
+                 return 0;
+            }
+            qu.pop();
             for(pair<int,int> p : dir){
                 int di = p.first;
                 int dj = p.second;
