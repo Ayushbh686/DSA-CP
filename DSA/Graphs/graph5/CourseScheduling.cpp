@@ -36,3 +36,4 @@ Class solution{
         return true;
     }
 }
+//alternative-> do from kahn algo like course scheduling 2 as main objective is to detect directed cycle in graph

@@ -14,17 +14,22 @@ void Union(vector<int>& parent , vector<int>& rank , int a , int b){  // tc = lo
     int parA = find(parent , a);
     //cout<<"fount parent of a in union command"<<endl;
     int parB = find(parent , b);
+
+    if(parA == parB) return ;
     //cout<<"fount parent of b in union command"<<endl;
-    if(rank[parA] >= rank[parB]){
-        rank[parA]++;
+    if(rank[parA] > rank[parB]){
         parent[parB] = parA;
         //cout<<"updated rank and parent in Union"<<endl;
     }
-    else{
-        rank[parB]++;
+    else if(rank[parA] < rank[parB]){
         parent[parA] = parB;
         //cout<<"updated rank and parent in Union"<<endl;
     }
+    else{
+        parent[parB] = parA;
+        rank[parA]++;
+    }
+    return ;
 }
 
 int main(){
