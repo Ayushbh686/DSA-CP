@@ -9,7 +9,7 @@ void KahnAlgoBFS(){
     queue<int>qu;
     unordered_set<int> visited;
     for(int i=0 ; i<n ; i++){
-        cout<<inDeg[i]<<" ";
+        //cout<<inDeg[i]<<" ";
         if(inDeg[i] == 0) {
             qu.push(i);
             visited.insert(i);
@@ -49,3 +49,4 @@ int main(){
     //if less than n nodes printed that means there is an Directed cyclic graph in it
     return 0;
 }
+//not required to count visited nodes but its just additional 
