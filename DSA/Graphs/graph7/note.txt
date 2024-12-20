@@ -1,0 +1,4 @@
+connected componentes in grpah can be find using 
+dsu
+dfs , bfs (similar like running over all unvisited vertices  , write code for bfs similar to that of bfs in graph3)
+topo sort(not tried yet , try someday)
