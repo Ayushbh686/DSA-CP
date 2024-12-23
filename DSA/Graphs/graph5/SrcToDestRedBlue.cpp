@@ -50,6 +50,7 @@ int main() {
 
     return 0;
 }
+// this is not optimal solution as its time complexity is high so use alertnative solution
 // alternative(better) -> find shortest path from src to every node only using red edge , mark unreachable as INFINITY
 // and find shortest distance from des to every node using blue edge only where unreachable will be marked as INFINITY so the node with minimum sum of these two distance will be intermediate node will give shortest distance and path
 // BFS TWO TIMES
