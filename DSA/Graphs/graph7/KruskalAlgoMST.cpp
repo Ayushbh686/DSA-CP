@@ -40,12 +40,13 @@ long long kruskalAlgo() {
     long long mst = 0;
     vector<vector<int>> mstEdges;
 
-    for (int i = 0; i < edges.size(); i++) {
+    for (int i = 0; i < edges.size(); i++) { //vlog*v as this loop goes only for n-1 edges until mst not formed
         if (find(edges[i][0]) != find(edges[i][1])) {
             mst += edges[i][2];
             mstEdges.push_back(edges[i]);
             Union(edges[i][0], edges[i][1]);
         }
+        if(mstEdges.size() == n-1) break;
     }
 
     cout << "Edges included are: ";
@@ -78,3 +79,4 @@ int main() {
 }
 
 // tc = (eloge + v log*v) == (eloge + v)
+// prefer when edges < vertices , sparse graph so this means less tc for sorting edges 
