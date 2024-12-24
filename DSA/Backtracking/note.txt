@@ -1,0 +1,11 @@
+general algo paradigms :-
+brute force->exploring all possibility ( generally recursion) 
+dp ->optimisation of brute force
+greedy 
+dnc
+
+inbrute force , we optimise by two methods
+prune the irrelevent calls 
+trace one path and then revert to explore other possibility , 
+
+so these two optimisation makes backtracking
