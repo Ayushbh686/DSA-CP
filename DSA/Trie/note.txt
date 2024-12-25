@@ -1,0 +1,33 @@
+
+Trie Data Structure:
+
+1. **Overview**:
+   - A Trie is a specialized tree-like data structure used to store strings, especially useful for prefix-based searches.
+   - Each node represents a character, and paths from the root to terminal nodes correspond to valid words.
+
+2. **Complexity**:
+   - **Insert Operation**: O(L), where L is the length of the word being inserted.
+   - **Search Operation**: O(L), where L is the length of the word being searched.
+   - **Prefix Search**: O(L), where L is the length of the prefix.
+
+3. **Comparison with Unordered Map**:
+   - Using an unordered map to store strings requires O(X^N) space for searching with full word as n bits * x^n combination so n*x^n, where:
+     - X = Number of unique characters in the dataset.
+     - N = Length of the word.
+   - In contrast, a Trie reduces this to O(L) and O(x^n) space, as it directly follows the path of characters in the prefix.
+
+4. **Advantages of Trie**:
+   - Efficient prefix searching.
+   - Supports lexicographical ordering of strings.
+   - Space optimization when storing many strings with common prefixes.
+
+5. **Disadvantages of Trie**:
+   - Higher space complexity compared to hash-based structures (due to pointers in each node).
+   - Implementation is more complex than hash-based structures like unordered_map.
+
+6. **Use Cases**:
+   - Auto-complete systems.
+   - Spell checkers.
+   - Longest prefix matching (used in IP routing).
+
+7. **In our implementation each node has one character , one bool value if its terminal , one unordered_map storing children and node pointer**
