@@ -1,3 +1,11 @@
+/*
+If you want to explicitly list all possible paths, DP is not the best approach because it doesn't store the exact path sequences. Instead:
+
+Use Backtracking to explore all paths and store them in a list.
+Backtracking has higher complexity (𝑂(2^𝑚+𝑛)) due to the exponential growth of paths but can enumerate all paths.
+DP is thus better for counting paths efficiently, while backtracking is better for finding all paths explicitly.
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
