@@ -79,6 +79,6 @@ int main(){
     return 0;
 }
 // 1 based indexing
-// we use priority queue to get the minimum weight edge from the pq that why we got logn for extracting minimum weight edge and if we use for loop the nit will take n time to get the minimum weight edge
+// we use priority queue to get the minimum weight edge from the pq that why we got logn for extracting minimum weight edge and if we use for loop then it will take n time to get the minimum weight edge
 // vlogv
 // prefer when vertices < edges , dense graph as we process nodes by nodes so we visit nodes many times by different paths 
