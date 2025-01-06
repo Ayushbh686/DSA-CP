@@ -38,7 +38,7 @@ void DijkstraAlgo(int src){  // O( vlogv + elogv)
             pq.pop();
             continue;
         }
-        else{ //edge is included in mst only in this case
+        else{ 
             visited.insert(top.second);
             pq.pop();
             //cout<<top.first<<" "<<top.second<<endl;
