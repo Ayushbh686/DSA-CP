@@ -16,7 +16,7 @@ public:
     int dfsVisit(int i , int j , vector<vector<int>>& grid){
         if(i < 0 or i >= m or j < 0 or j >= n or grid[i][j] == 0) return 0;
         grid[i][j] = 0;
-        vector<vector<int>> dir = { {0,1} , {0,-1} , {1,0} , {-1,0} };
+        vector<vector<int>> dir = { {0,1} , {0,-1} , {1,0} , {-1,0} }; //0 , 1 , 0 , -1 , 0;
 
         int area = 1;
         for(auto ele : dir){
