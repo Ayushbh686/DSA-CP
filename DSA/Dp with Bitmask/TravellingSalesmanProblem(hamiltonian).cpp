@@ -1,5 +1,5 @@
 /*
-
+finding hamiltoninan cycle 
 */
 #include<bits/stdc++.h>
 using namespace std;
