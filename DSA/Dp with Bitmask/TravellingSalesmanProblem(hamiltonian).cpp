@@ -35,4 +35,4 @@ int main(){
     cout<<tsp(0,1); //mask gives the set of visited nodes so 2^n-1 means all visited and 0 means none
     return 0;
 }
-// tc = n^2 * 2^n as n^2^n states and each state make o(n) loop
+// tc = n^2 * 2^n as n*2^n states and each state make o(n) loop
