@@ -32,7 +32,7 @@ int Kthsmallest(int arr[], int si , int ei, int k){
 }
 
 int main(){
-    int arr[]={5,2,9,7,1,8,6,42,34,19} , k;
+    int arr[]={12, 3, 5, 7, 4, 19, 26} , k;
     int n = sizeof(arr)/sizeof(arr[0]);
     cout<<"enter the value of k : ";
     cin>>k;
