@@ -56,23 +56,90 @@ void getCycle(Node* head){
     return ;
 }
 
+Node* createList(int n , int cycleIdx){
+    Node* head , *temp , *cycleNode = NULL;
+    for(int i = 1; i<=n ; i++){
+        int val;
+        cin>>val;
+        Node* newNode = new Node(val);
+        if(i==cycleIdx){
+            cycleNode = newNode;
+        }
+        if(i==1){
+            head = temp = newNode;    
+        }
+        else{
+            temp -> next = newNode;
+            temp = temp->next;
+        }
+    }
+    temp->next = cycleNode;
+    return head;
+}
+
 int main(){
-    Node* a = new Node(10);
-    Node* b = new Node(20);
-    Node* c = new Node(30);
-    Node* d = new Node(40);
-    Node* e = new Node(50);
-    Node* f = new Node(60);
-    Node* g = new Node(70);
+    // Node* a = new Node(10);
+    // Node* b = new Node(20);
+    // Node* c = new Node(30);
+    // Node* d = new Node(40);
+    // Node* e = new Node(50);
+    // Node* f = new Node(60);
+    // Node* g = new Node(70);
 
-    a->next = b;
-    b->next = c;
-    c->next = d;
-    d->next = e;
-    e->next = f;
-    f->next = g;
-    g->next = NULL;
+    // a->next = b;
+    // b->next = c;
+    // c->next = d;
+    // d->next = e;
+    // e->next = f;
+    // f->next = g;
+    // g->next = NULL;
 
-    getCycle(a);
+    // getCycle(a);
+
+    int t;
+    cin>>t;
+    while(t--){
+        int n , cycleIdx;
+        cin>>n>>cycleIdx;
+        Node* head = createList(n , cycleIdx);
+        getCycle(head);
+    }
     return 0;
 }
+/*
+11
+
+6 2
+1 2 3 4 5 6
+
+6 -1
+1 2 3 4 5 6
+
+6 1
+1 2 3 4 5 6
+
+6 6
+1 2 3 4 5 6
+
+1 1 
+1
+
+1 -1
+1
+
+2 1
+1 2
+
+5 3
+1 2 3 4 5 
+
+4 2
+1 2 3 4
+
+5 4
+1 2 3 4 5
+
+4 3
+1 2 3 4
+*/
+
