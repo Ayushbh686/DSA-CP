@@ -1,3 +1,3 @@
 for detection of cycle in grpah:-
-if directed then use topological sort i.e kahn algo , dfs , bfs
+if directed then use topological sort i.e kahn algo , dfs , bfs (for directed modify the bfs and dfs and cycle only if the currect path pushed (use recursion stack array or return only if vis[x] == 0))
 if undirected then use bfs , dfs , dsu
