@@ -54,3 +54,5 @@ int main(){
     // else cout<<fTopDown(sum)<<endl;
     return 0;
 }
+//greedy not correct as in example [1,5,7] , sum = 11
+// another example that greedy not correct [25,10,5] , sum = 30

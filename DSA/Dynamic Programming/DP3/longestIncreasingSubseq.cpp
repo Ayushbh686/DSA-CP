@@ -1,59 +1,120 @@
-// leetcode 300
+/*
+https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/#using-memoization-on2-time-and-on-space
+*/
 
-class Solution {
-public:
-    vector<vector<int>> dp;
-    int n;
+#include <bits/stdc++.h>
+using namespace std;
 
-    int fUpDown(vector<int>& nums, int idx, int lastIdx) {
-        if (idx == n) return 0;  // Base case: no more elements to pick
-        if (dp[idx][lastIdx + 1] != -1) return dp[idx][lastIdx + 1];  // Already computed
+int lisEndingAtIdx(vector<int>& arr, int idx, vector<int>& memo) {
+  
+    // Base case
+    if (idx == 0)
+        return 1;
 
-        // Option 1: Not picking this element
-        int ans = fUpDown(nums, idx + 1, lastIdx);
+    // Check if the result is already computed
+    if (memo[idx] != -1)
+        return memo[idx];
 
-        // Option 2: Pick this element if it forms an increasing subsequence
-        if (lastIdx == -1 || nums[idx] > nums[lastIdx]) {
-            ans = max(ans, 1 + fUpDown(nums, idx + 1, idx));
+    // Consider all elements on left of i,
+    // recursively compute LISs ending with 
+    // them and consider the largest
+    int mx = 1;
+    for (int prev = 0; prev < idx; prev++)
+        if (arr[prev] < arr[idx])
+            mx = max(mx, lisEndingAtIdx(arr, prev, memo) + 1);
+
+    // Store the result in the memo array
+    memo[idx] = mx;
+    return memo[idx];
+}
+
+int lis(vector<int>& arr) {
+    
+    int n = arr.size();
+  
+    vector<int> memo(n, -1);
+  
+    int res = 1;
+    for (int i = 1; i < n; i++)
+        res = max(res, lisEndingAtIdx(arr, i, memo));
+    return res;
+}
+
+int main() {
+    vector<int> arr = { 10, 22, 9, 33, 21, 50, 41, 60 };
+    cout << lis(arr);
+    return 0;
+}
+
+//o(n2) tc and o(n) sc
+
+
+//method 2 with o(nlogn) tc and O(n) sc using binary search
+
+/*
+#include <bits/stdc++.h>
+using namespace std;
+
+int lengthOfLIS(vector<int>& arr)
+{
+
+    // Binary search approach
+    int n = arr.size();
+    vector<int> ans;
+
+    // Initialize the answer vector with the
+    // first element of arr
+    ans.push_back(arr[0]);
+
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > ans.back()) {
+
+            // If the current number is greater
+            // than the last element of the answer
+            // vector, it means we have found a
+            // longer increasing subsequence.
+            // Hence, we append the current number
+            // to the answer vector.
+            ans.push_back(arr[i]);
         }
+        else {
 
-        return dp[idx][lastIdx + 1] = ans;  // Save the result in dp table
-    }
+            // If the current number is not
+            // greater than the last element of
+            // the answer vector, we perform
+            // a binary search to find the smallest
+            // element in the answer vector that
+            // is greater than or equal to the
+            // current number.
 
-    int lengthOfLIS(vector<int>& nums) {
-        n = nums.size();
-        dp.clear();
-        dp.resize(n, vector<int>(n + 1, -1));  // DP table resized to track up to 'n' indices
-        return fUpDown(nums, 0, -1);  // Start from idx 0 and with no last picked element
-    }
-};
-//using last idx instead of last as we are making dp array and manytimes doing dp[][last] which will give out of bound as last can many times be negative 
+            // The lower_bound function returns
+            // an iterator pointing to the first
+            // element that is not less than
+            // the current number.
+            int low = lower_bound(ans.begin(), ans.end(),
+                                  arr[i])
+                      - ans.begin();
 
-
-
-
-
-//METHOD 2
-class Solution {
-public:
-    int lengthOfLIS(vector<int>& nums) {
-        int n = nums.size();
-        if (n == 0) return 0;
-        
-        vector<int> dp(n, 1);  // DP array for storing LIS at each index
-        int maxLength = 1;
-
-        for (int i = 1; i < n; i++) {
-            for (int j = 0; j < i; j++) {
-                if (nums[i] > nums[j]) {
-                    dp[i] = max(dp[i], dp[j] + 1);
-                }
-            }
-            maxLength = max(maxLength, dp[i]);
+            // We update the element at the
+            // found position with the current number.
+            // By doing this, we are maintaining
+            // a sorted order in the answer vector.
+            ans[low] = arr[i];
         }
-
-        return maxLength;
     }
-};
 
-//o(n) sc and can write the bottom up for this easily
+    // The length of the answer vector
+    // represents the length of the
+    // longest increasing subsequence.
+    return ans.size();
+}
+
+// Driver program to test above function
+int main()
+{
+    vector<int> arr = { 10, 22, 9, 33, 21, 50, 41, 60 };
+    printf("Length of LIS is %d\n", lengthOfLIS(arr));
+    return 0;
+}
+
+*/

@@ -1,0 +1,3 @@
+if we have dag , then we can simply use toposort to find shortest path to every vertex from source as shortest path or longest path to a vertex can be calculated if shortest or longest path to its preceding vertices are known.
+
+dijkstra is needed where cycle can be possible as there toposort doest work
