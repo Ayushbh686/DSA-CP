@@ -46,7 +46,7 @@ void DijkstraAlgo(int src){  // O( vlogv + elogv)
                 if(!visited.count(ele.second) and (long long)dist[ele.second] > (long long)(ele.first + dist[top.second])){
                     dist[ele.second] = ele.first + dist[top.second];
                     via[ele.second] = top.second;
-                    pq.push({ele.first + top.second , ele.second});
+                    pq.push({ele.first + dist[top.second], ele.second});
                 }
             }
         }
