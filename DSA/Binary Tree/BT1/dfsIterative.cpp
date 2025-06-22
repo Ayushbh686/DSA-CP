@@ -50,7 +50,7 @@ void inOrderItr(Node* root) {
   }
 }
 
-void postOrderItr(Node* root, vector<int> ans) {
+void postOrderItr(Node* root, vector<int> ans) { //effective using 2 storages that is one stack + one vector or one stack + one stack for reversal
         if(root == NULL) return ;
         stack<Node*>stk;
         stk.push(root);
@@ -66,6 +66,47 @@ void postOrderItr(Node* root, vector<int> ans) {
         for(int i=0 ; i<ans.size() ; i++) cout<<ans[i]<<" ";
         return ;
     }
+
+void postOrderItr2(Node* root) { //using single o(n) storage one stack (it mimics recursion call for post order)
+    if (!root) return;
+
+    stack<Node*> s;
+    Node* lastVisited = nullptr;
+
+    while (!s.empty() || root) {
+        
+        // Keep moving to the left 
+        // until we reach a null
+        if (root) {
+            s.push(root);
+            root = root->left;
+        }
+        else {
+            
+            // Take out an item from stack
+            Node* peekNode = s.top();
+            
+            // If the taken out item has a 
+            // right child and the right child
+            // is not visited, move to the right
+            if (peekNode->right && lastVisited != peekNode->right) {
+                root = peekNode->right;
+                
+            // If there is no right child
+            // or the right child is already
+            // visited, then add peekNode to the
+            // result and remove from the stack
+            } else {
+                lastVisited = s.top();
+                cout<<s.top()->val<<" "; //peekNode->val
+                s.pop();
+            }
+        }
+    }
+
+    return ;
+}
+
 
 int main(){
     Node* a = new Node(1); // root of tree
@@ -86,6 +127,8 @@ int main(){
     preOrderItr(a);
     cout<<endl;
     postOrderItr(a, vector<int> {} );  // Create and pass an empty vector
+    cout<<endl;
+    postOrderItr2(a );  // Create and pass an empty vector
     cout<<endl;
     inOrderItr(a);
     return 0;
