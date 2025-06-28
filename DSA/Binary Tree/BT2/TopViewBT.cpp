@@ -43,8 +43,8 @@ Node* construct(int arr[],int n){
 }
 
 void TopViewBT(Node* root){
-    queue<pair<Node* , int>> q; //node , level
-    unordered_map<int , int> mp; // level , root->Val
+    queue<pair<Node* , int>> q; //node , vertcal level
+    unordered_map<int , int> mp; // vertical level , root->Val
     pair<Node* , int> r;
     r.first = root;
     r.second = 0;

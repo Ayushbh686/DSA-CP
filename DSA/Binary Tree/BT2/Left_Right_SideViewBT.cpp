@@ -49,12 +49,24 @@ void LeftView(Node* root , vector<int> &ans , int level){
     return ;
 }
 
+void RightView(Node* root , vector<int> &ans , int level){
+    if(root == NULL) return ;
+    if(level == ans.size()) ans.push_back(root->val);
+    LeftView(root->right , ans , level+1);
+    LeftView(root->left , ans , level+1);
+    return ;
+}
+
 int main(){
     int arr[] = {1,2,3,4,5,INT_MIN, 6,INT_MIN,INT_MIN , 7,8,9};
     int n = sizeof(arr)/sizeof(arr[0]);
     Node* root = construct(arr,n);
     vector<int> ans;
     LeftView(root, ans , 0);
+    for(int i=0 ; i<ans.size() ; i++) cout<<ans[i]<<" ";
+    cout<<endl;
+    ans.clear();
+    RightView(root, ans , 0);
     for(int i=0 ; i<ans.size() ; i++) cout<<ans[i]<<" ";
     return 0;
 }
